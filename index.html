@@ -490,10 +490,10 @@
     </div>
   </div>
 
-  <!-- ── SLIDE 2: Existing materials ── -->
-  <div class="slide slide-content" data-title="Mövcud Materiallar" data-ch="CH1">
-    <div class="slide-heading">Mövcud Materiallar</div>
-    <p class="slide-sub">Aşağıdakı dərs materialları artıq hazırdır</p>
+  <!-- ── SLIDE 2: Chapter 1 materials ── -->
+  <div class="slide slide-content" data-title="Chapter 1 — Materiallar" data-ch="CH1">
+    <div class="slide-heading">Chapter 1 — Materiallar</div>
+    <p class="slide-sub">Introduction to the Course</p>
     <a href="session-intro-why-linux-dpe.html" class="link-card" target="_blank">
       <div class="lc-icon">🚀</div>
       <div><div class="lc-title">Giriş — DPE kimi niyə Linux bilməlisən?</div><div class="lc-desc">Motivasiya, real ssenariilər, data stack &amp; Linux əlaqəsi</div></div>
@@ -514,6 +514,37 @@
       <div><div class="lc-title">Session 02 — Linux Filesystem Hierarchy</div><div class="lc-desc">Fayl sistemi ierarxiyası, /, /home, /etc, /var...</div></div>
       <span class="lc-arr">→</span>
     </a>
+    <a href="virtual-box/index.html" class="link-card" target="_blank">
+      <div class="lc-icon">🧪</div>
+      <div><div class="lc-title">Lab — VirtualBox + Ubuntu 24.04</div><div class="lc-desc">macOS / Windows-da virtual maşın quraşdırma</div></div>
+      <span class="lc-arr">→</span>
+    </a>
+    <a href="mobaxterm/index.html" class="link-card" target="_blank">
+      <div class="lc-icon">🧪</div>
+      <div><div class="lc-title">Lab — MobaXterm ilə SSH Bağlantısı</div><div class="lc-desc">Windows &amp; macOS-dan Linux VM-ə qoşulma</div></div>
+      <span class="lc-arr">→</span>
+    </a>
+  </div>
+
+  <!-- ── Chapter 2 ── -->
+  <div class="slide slide-chapter" data-title="Chapter 2" data-ch="CH2">
+    <div class="ch-label">Chapter 2</div>
+    <h2>Files and Directories</h2>
+    <p class="ch-desc">Fayl yaratma, redaktə, silmə əsas əmrləri</p>
+    <div class="ch-topics-list">
+      <div class="ch-topic-item">Basic Linux Commands</div>
+      <div class="ch-topic-item">Read a File</div>
+      <div class="ch-topic-item">Create a File</div>
+      <div class="ch-topic-item">Edit or Append Content to a File</div>
+      <div class="ch-topic-item">Create Directories</div>
+      <div class="ch-topic-item">Remove Files and Directories</div>
+    </div>
+  </div>
+
+  <!-- ── Chapter 2 materials ── -->
+  <div class="slide slide-content" data-title="Chapter 2 — Materiallar" data-ch="CH2">
+    <div class="slide-heading">Chapter 2 — Materiallar</div>
+    <p class="slide-sub">Files and Directories</p>
     <a href="session-03-linux-commands.html" class="link-card" target="_blank">
       <div class="lc-icon">📽</div>
       <div><div class="lc-title">Session 03 — Basic Linux Commands</div><div class="lc-desc">date, cal, uptime, whoami, id, man əmrləri</div></div>
@@ -529,32 +560,16 @@
       <div><div class="lc-title">Session 05 — Create a File</div><div class="lc-desc">touch, cat >, nano, vi ilə fayl yaratmaq</div></div>
       <span class="lc-arr">→</span>
     </a>
-    <a href="virtual-box/index.html" class="link-card" target="_blank">
-      <div class="lc-icon">🧪</div>
-      <div><div class="lc-title">Lab — VirtualBox + Ubuntu 24.04</div><div class="lc-desc">macOS / Windows-da virtual maşın quraşdırma</div></div>
+    <a href="session-06-edit-append-file.html" class="link-card" target="_blank">
+      <div class="lc-icon">📽</div>
+      <div><div class="lc-title">Session 06 — Edit or Append Content to a File</div><div class="lc-desc">>>, cat >>, echo >>, nano/vi ilə redaktə</div></div>
       <span class="lc-arr">→</span>
     </a>
-    <a href="mobaxterm/index.html" class="link-card" target="_blank">
-      <div class="lc-icon">🧪</div>
-      <div><div class="lc-title">Lab — MobaXterm ilə SSH Bağlantısı</div><div class="lc-desc">Windows &amp; macOS-dan Linux VM-ə qoşulma</div></div>
+    <a href="session-07-create-directories.html" class="link-card" target="_blank">
+      <div class="lc-icon">📽</div>
+      <div><div class="lc-title">Session 07 — Create Directories</div><div class="lc-desc">mkdir, mkdir -p, tree ilə qovluq yaratmaq</div></div>
       <span class="lc-arr">→</span>
     </a>
-
-  </div>
-
-  <!-- ── SLIDE 10: Chapter 2 placeholder ── -->
-  <div class="slide slide-chapter" data-title="Chapter 2" data-ch="CH2">
-    <div class="ch-label">Chapter 2</div>
-    <h2>Files and Directories</h2>
-    <p class="ch-desc">Fayl yaratma, redaktə, silmə əsas əmrləri</p>
-    <div class="ch-topics-list">
-      <div class="ch-topic-item">Basic Linux Commands</div>
-      <div class="ch-topic-item">Read a File</div>
-      <div class="ch-topic-item">Create a File</div>
-      <div class="ch-topic-item">Edit or Append Content to a File</div>
-      <div class="ch-topic-item">Create Directories</div>
-      <div class="ch-topic-item">Remove Files and Directories</div>
-    </div>
   </div>
 
   <div class="slide slide-content" data-title="Basic Linux Commands" data-ch="CH2">
@@ -586,11 +601,21 @@
   </div>
   <div class="slide slide-content" data-title="Edit or Append Content" data-ch="CH2">
     <div class="slide-heading">Edit or Append Content to a File</div>
-    <div class="coming-soon"><div class="cs-icon">✏️</div><p>Məzmun tezliklə əlavə ediləcək</p></div>
+    <p class="slide-sub">>> · cat >> · echo >> · nano · vi</p>
+    <a href="session-06-edit-append-file.html" class="link-card" target="_blank">
+      <div class="lc-icon">📽</div>
+      <div><div class="lc-title">Session 06 — Edit or Append Content to a File</div><div class="lc-desc">Fayl məzmununu redaktə etmək və append əmrləri</div></div>
+      <span class="lc-arr">→</span>
+    </a>
   </div>
   <div class="slide slide-content" data-title="Create Directories" data-ch="CH2">
     <div class="slide-heading">Create Directories</div>
-    <div class="coming-soon"><div class="cs-icon">📁</div><p>Məzmun tezliklə əlavə ediləcək</p></div>
+    <p class="slide-sub">mkdir · mkdir -p · tree</p>
+    <a href="session-07-create-directories.html" class="link-card" target="_blank">
+      <div class="lc-icon">📽</div>
+      <div><div class="lc-title">Session 07 — Create Directories</div><div class="lc-desc">Qovluq yaratmaq, iç-içə strukturlar, adlandırma qaydaları</div></div>
+      <span class="lc-arr">→</span>
+    </a>
   </div>
   <div class="slide slide-content" data-title="Remove Files and Directories" data-ch="CH2">
     <div class="slide-heading">Remove Files and Directories</div>
