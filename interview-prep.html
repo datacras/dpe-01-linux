@@ -712,10 +712,10 @@ section::after { color: #848688; font-size: 0.72em; }
 <div class="a">✅ PPID=Parent Process ID (kimin başlatdığı). PID 1=systemd/init — bütün proseslərin atası. Öldürsən sistem çökər.</div>
 <div class="q">❓ <code>kill -9</code> ilə <code>kill -15</code> fərqi? Hansını əvvəl işlətməlisən?</div>
 <div class="a">✅ <code>-15</code>(SIGTERM)=nəzakətli, proses resurslarını təmizləyib çıxır. <code>-9</code>(SIGKILL)=məcburi. Əvvəl -15, cavab yoxsa -9.</div>
-<div class="q">❓ <code>Ctrl+Z</code> → <code>bg %1</code> → <code>fg %1</code> ardıcıllığı nə edir?</div>
-<div class="a">✅ <code>Ctrl+Z</code>=prosesi dondurur. <code>bg %1</code>=arxa planda davam etdirir. <code>fg %1</code>=ön plana qaytarır.</div>
-<div class="q">❓ <code>nohup python etl.py &</code> niyə işlədilir?</div>
-<div class="a">✅ SSH kəsilsə belə proses davam edir. <code>nohup</code>=HUP siqnalını ignore et. <code>&</code>=arxa planda başlat.</div>
+<div class="q">❓ <code>Ctrl+Z</code> → <code>jobs</code> → <code>bg %1</code> → <code>fg %1</code> ardıcıllığı nə edir?</div>
+<div class="a">✅ <code>Ctrl+Z</code>=prosesi dondurur, job cədvəlinə əlavə edir. <code>jobs</code>=aktiv job-ları siyahıla. <code>bg %1</code>=job 1-i arxa planda davam etdir. <code>fg %1</code>=job 1-i ön plana gətir. <code>%</code>=PID yox, job nömrəsinə istinad edir.</div>
+<div class="q">❓ "john" istifadəçisi serverdə qalıb, sessiyasını uzaqdan sonlandırmaq lazımdır — nə edərsən?</div>
+<div class="a">✅ <code>ps -ef | grep john</code> → bash prosesinin PID-ni tap → <code>kill -9 PID</code>. bash prosesi öldüyündə SSH sessiyası avtomatik bağlanır.</div>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-paginate="true" data-background-color="#F7F9F8" data-color="#0F172A" data-theme="default" data-style="section {
   font-family: 'Segoe UI', Arial, sans-serif;
@@ -778,7 +778,7 @@ section::after { color: #848688; font-size: 0.72em; }
 ;color:#0F172A;background-color:#F7F9F8;background-image:none;" data-marpit-pagination-total="17">
 <h2 id="%F0%9F%97%9C%EF%B8%8F-arxivl%C9%99m%C9%99"><img class="emoji" draggable="false" alt="🗜️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f5dc.svg" data-marp-twemoji=""/> Arxivləmə</h2>
 <div class="q">❓ <code>gzip</code> ilə <code>zip</code> fərqi — orijinal fayl nə olur?</div>
-<div class="a">✅ <code>gzip</code>: orijinal <strong>silinir</strong>, yalnız .gz qalır. <code>zip</code>: orijinal <strong>qalır</strong>, .zip əlavə yaranır.</div>
+<div class="a">✅ <code>gzip</code>: orijinal <strong>silinir</strong>, yalnız .gz qalır (<code>gzip -k</code> = keep, orijinalı saxla). <code>zip</code>: orijinal <strong>qalır</strong>, .zip əlavə yaranır.</div>
 <div class="q">❓ <code>gzip dir/</code> işlədəndə nə baş verir?</div>
 <div class="a">✅ Xəta verir: <code>gzip: dir/ is a directory -- ignored</code>. gzip/zip yalnız fayla işləyir, qovluğa yox.</div>
 <div class="q">❓ Qovluğu sıxışdırılmış arxiv kimi necə saxlarsın?</div>
@@ -850,10 +850,10 @@ section::after { color: #848688; font-size: 0.72em; }
 <h2 id="%F0%9F%95%90-crontab"><img class="emoji" draggable="false" alt="🕐" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f550.svg" data-marp-twemoji=""/> Crontab</h2>
 <div class="q">❓ Crontab formatı necədir? Sahələri sırala.</div>
 <div class="a">✅ <code>dəqiqə  saat  ayın-günü  ay  həftə-günü  əmr</code> → <code>30 08 * * * /script.sh</code></div>
-<div class="q">❓ Bu cron job-lar nə vaxt işləyir? <code>00 14 * * 6</code> · <code>*/5 * * * *</code> · <code>0 0 1 * *</code></div>
-<div class="a">✅ Hər Şənbə 14:00 · Hər 5 dəqiqə · Hər ayın 1-i gecə yarısı</div>
-<div class="q">❓ <code>crontab -l</code> ilə <code>crontab -e</code> fərqi?</div>
-<div class="a">✅ <code>-l</code>=list (göstər). <code>-e</code>=edit (redaktə et). <code>-r</code>=remove (hamısını sil — diqqətli ol!).</div>
+<div class="q">❓ Bu cron ifadələri nə vaxt işləyir? <code>00 14 * * 6</code> · <code>*/5 * * * *</code> · <code>30 08 * * 1-5</code> · <code>0 0 1,15 * *</code></div>
+<div class="a">✅ Hər Şənbə 14:00 · Hər 5 dəqiqə · İş günləri (B.ertəsi–Cümə) 08:30 · Hər ayın 1-i və 15-i gecə yarısı</div>
+<div class="q">❓ <code>crontab -l</code> ilə <code>crontab -e</code> fərqi? <code>-r</code> niyə təhlükəlidir?</div>
+<div class="a">✅ <code>-l</code>=list (göstər). <code>-e</code>=edit (redaktə et). <code>-r</code> ⚠️ bütün cron job-larını geri qayıtmadan silir! Silmək istəyirsənsə <code>-e</code> ilə aç, yalnız həmin sətri sil.</div>
 <div class="q">❓ Cron job işlətdiyin skript əmr tapılmır xətası verir — niyə?</div>
 <div class="a">✅ Cron məhdud PATH ilə işləyir. Skriptdə tam yol işlət: <code>/usr/bin/python3</code>, <code>/home/john/scripts/etl.sh</code>.</div>
 <div class="q">❓ Cron job-ların çıxışını log faylına necə yönləndirsən?</div>
@@ -990,14 +990,14 @@ li { margin-bottom: 2px; font-size: 0.81em; }
 section::after { color: #848688; font-size: 0.72em; }
 ;color:#0F172A;background-color:#F7F9F8;background-image:none;" data-marpit-pagination-total="17">
 <h2 id="%F0%9F%93%A4-scp--fayl-kopyalama"><img class="emoji" draggable="false" alt="📤" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1f4e4.svg" data-marp-twemoji=""/> SCP — Fayl Kopyalama</h2>
-<div class="q">❓ <code>scp</code> nədir? Hansı protokol üzərindən işləyir?</div>
-<div class="a">✅ Secure Copy Protocol — SSH üzərindən şifrəli fayl köçürür. Port 22 açıq olmalıdır.</div>
+<div class="q">❓ <code>scp</code> nədir? Windows-dan Linux-a fayl köçürmə üsulları hansılardır?</div>
+<div class="a">✅ Secure Copy Protocol — SSH üzərindən şifrəli fayl köçürür, port 22 lazımdır. Windows→Linux: <strong>MobaXterm SFTP paneli</strong> (drag &amp; drop, GUI). Linux↔Linux: terminal-dan <code>scp</code> əmri.</div>
 <div class="q">❓ <code>scp data.csv john@10.0.1.5:/home/john/</code> nə edir?</div>
 <div class="a">✅ Lokal <code>data.csv</code>-ni uzaq serverə (<code>10.0.1.5</code>) <code>john</code> user-inin ev qovluğuna kopyalayır.</div>
 <div class="q">❓ Remote-dan fayl almaq üçün sintaksis necədir?</div>
 <div class="a">✅ <code>scp user@IP:/remote/path/file.csv .</code> — nöqtə = cari qovluq. Mənbə ilə hədəf yeri dəyişir.</div>
-<div class="q">❓ <code>scp -r</code>, <code>scp -P 2222</code>, <code>scp -i key.pem</code> nə edir?</div>
-<div class="a">✅ <code>-r</code>=qovluq (recursive) · <code>-P 2222</code>=xüsusi SSH portu · <code>-i key.pem</code>=SSH key ilə autentifikasiya</div>
+<div class="q">❓ <code>scp -r</code>, <code>scp -P 2222</code>, <code>scp -i key.pem</code>, <code>scp -v</code> nə edir?</div>
+<div class="a">✅ <code>-r</code>=qovluq (recursive) · <code>-P 2222</code>=xüsusi port (⚠️ böyük P — <code>ssh -p</code> kiçikdir) · <code>-i key.pem</code>=SSH key · <code>-v</code>=verbose, debug üçün</div>
 <div class="q">❓ <code>scp</code> şifrə qəbul etmirsə hansı konfiq dəyişdirilir?</div>
 <div class="a">✅ <code>/etc/ssh/sshd_config</code> → <code>PasswordAuthentication yes</code> → <code>service sshd reload</code></div>
 </section>
